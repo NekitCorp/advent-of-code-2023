@@ -10,7 +10,7 @@ export function readInput(url) {
     const __filename = fileURLToPath(url);
     const __dirname = path.dirname(__filename);
 
-    const input = fs.readFileSync(path.resolve(__dirname, "input"), "utf8");
+    const input = fs.readFileSync(path.resolve(__dirname, "input.txt"), "utf8");
 
     return input;
 }
@@ -25,5 +25,5 @@ export function writeOutput(url, data, filename) {
     const __filename = fileURLToPath(url);
     const __dirname = path.dirname(__filename);
 
-    return fs.writeFileSync(path.resolve(__dirname, filename), data);
+    return fs.writeFileSync(path.resolve(__dirname, filename + ".txt"), data);
 }
