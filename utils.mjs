@@ -27,3 +27,24 @@ export function writeOutput(url, data, filename) {
 
     return fs.writeFileSync(path.resolve(__dirname, filename + ".txt"), data);
 }
+
+/**
+ *
+ * @template T
+ * @template R
+ * @param {(...args: T) => R} func
+ * @returns {(...args: T) => R}
+ */
+export function memoize(func) {
+    const stored = new Map();
+
+    return (...args) => {
+        const k = JSON.stringify(args);
+        if (stored.has(k)) {
+            return stored.get(k);
+        }
+        const result = func(...args);
+        stored.set(k, result);
+        return result;
+    };
+}
