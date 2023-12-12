@@ -1,6 +1,6 @@
 // @ts-check
 
-import { readInput } from "../utils.mjs";
+import { readInput } from "../utils.js";
 
 const input = readInput(import.meta.url);
 const hands = input.split("\n");

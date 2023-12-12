@@ -1,6 +1,6 @@
 // @ts-check
 
-import { readInput } from "../utils.mjs";
+import { readInput } from "../utils.js";
 
 /**
  * @param {string[][]} cells

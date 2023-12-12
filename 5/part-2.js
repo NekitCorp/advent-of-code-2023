@@ -1,7 +1,7 @@
 // @ts-check
 
 import { job, start, stop } from "microjob"; // https://github.com/nairihar/funthreads ???
-import { readInput } from "../utils.mjs";
+import { readInput } from "../utils.js";
 
 const input = readInput(import.meta.url);
 

@@ -3,5 +3,5 @@
 Advent of Code 2023
 
 ```sh
-node {DAY}/part-{PART}.mjs
+node {DAY}/part-{PART}.js
 ```

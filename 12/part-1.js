@@ -1,6 +1,6 @@
 // @ts-check
 
-import { memoize, readInput } from "../utils.mjs";
+import { readInput } from "../utils.js";
 
 const input = readInput(import.meta.url);
 const lines = input.split("\n");
@@ -10,7 +10,7 @@ const lines = input.split("\n");
  * @param {number[]} groups
  * @returns {number}
  */
-const dfs = memoize((points, groups) => {
+function dfs(points, groups) {
     if (points.length === 0) {
         return groups.length === 0 ? 1 : 0;
     }
@@ -57,7 +57,7 @@ const dfs = memoize((points, groups) => {
     }
 
     throw new Error(`Unrecognized symbol: ${points[0]}`);
-});
+}
 
 let sum = 0;
 
@@ -65,12 +65,7 @@ for (const line of lines) {
     const [points, groupsStr] = line.split(" ");
     const groups = groupsStr.split(",").map(Number);
 
-    const pointsX5 = `${points}?${points}?${points}?${points}?${points}`;
-    const groupsX5 = new Array(5).fill(groups).flat();
-
-    sum += dfs(pointsX5, groupsX5);
-
-    console.log({ line, sum });
+    sum += dfs(points, groups);
 }
 
 console.log({ sum });
