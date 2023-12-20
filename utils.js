@@ -48,3 +48,24 @@ export function memoize(func) {
         return result;
     };
 }
+
+// Least common multiple
+const gcd = (a, b) => {
+    // Euclidean algorithm
+    while (b !== 0) {
+        let temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+};
+const lcm = (a, b) => {
+    return (a * b) / gcd(a, b);
+};
+export const lcmm = (nums) => {
+    let res = nums[0];
+    for (let i = 1; i < nums.length; i++) {
+        res = lcm(res, nums[i]);
+    }
+    return res;
+};

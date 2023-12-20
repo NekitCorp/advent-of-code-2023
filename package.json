@@ -2,6 +2,7 @@
     "name": "adventofcode2023",
     "type": "module",
     "dependencies": {
-        "microjob": "^0.7.0"
+        "microjob": "^0.7.0",
+        "tsx": "^4.7.0"
     }
 }
