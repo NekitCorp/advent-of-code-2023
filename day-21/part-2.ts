@@ -6,24 +6,14 @@ const m = garden.length;
 const n = garden[0].length;
 const goal = 26501365;
 
-function f(v: number, [a0, a1, a2]: [a0: number, a1: number, a2: number]) {
-    const b0 = a0;
-    const b1 = a1 - a0;
-    const b2 = a2 - a1;
-
-    return b0 + b1 * v + Math.floor((v * (v - 1)) / 2) * (b2 - b1);
-}
-
 function run(): number[] {
     const result: number[] = [];
 
     const deser = (str: string): number[] => str.split(",").map((x) => +x);
     const mod = (a: number, b: number): number => ((a % b) + b) % b;
+    const gd = (y: number, x: number): string => garden[mod(y, m)][mod(x, m)];
 
     let locs: Record<string, boolean> = {};
-    const gd = (y, x) => {
-        return garden[mod(y, m)][mod(x, m)];
-    };
 
     for (let y = 0; y < m; y++) {
         for (let x = 0; x < n; x++) {
@@ -61,6 +51,14 @@ function run(): number[] {
     }
 
     return [];
+}
+
+function f(v: number, [a0, a1, a2]: [a0: number, a1: number, a2: number]): number {
+    const b0 = a0;
+    const b1 = a1 - a0;
+    const b2 = a2 - a1;
+
+    return b0 + b1 * v + Math.floor((v * (v - 1)) / 2) * (b2 - b1);
 }
 
 const [a0, a1, a2] = run();
